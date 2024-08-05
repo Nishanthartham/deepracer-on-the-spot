@@ -31,7 +31,7 @@ def reward_function(params):
 
     else:
 
-        reward -= 5
+        reward -= 10
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
 
