@@ -50,8 +50,8 @@ def reward_function(params):
         reward -= 10
 
 ###rewarding to prevent zigzag
-    if abs(params["steering_angle"]) < 10:
-        reward += 1
+    # if abs(params["steering_angle"]) < 10:
+    #     reward += 1
     if step > 0:
         reward = ((progress*150)/step)**2
     else:
