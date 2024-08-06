@@ -49,27 +49,27 @@ def reward_function(params):
 
         reward -= 10
 
-###rewarding to prevent zigzag
-    # if abs(params["steering_angle"]) < 10:( / params["steps"]
-    #     reward += 1
+##rewarding to prevent zigzag
+    if abs(params["steering_angle"]) < 10:#( / params["steps"]
+        reward += 5
     step = params["steps"]
     if step > 0:
-        reward = ((params["progress"]*150)/step)**2
-# # Steering penality threshold, change the number based on your action space setting
-#     ABS_STEERING_THRESHOLD = 15
-#     if steering > ABS_STEERING_THRESHOLD:
-#         reward *= 0.8
+        reward += ((params["progress"]*150)/step)**2
+# Steering penality threshold, change the number based on your action space setting
+    ABS_STEERING_THRESHOLD = 15
+    if steering > ABS_STEERING_THRESHOLD:
+        reward *= 0.8
 #####SPEED
 
     if params["closest_waypoints"][1] in fast:
 
         if params["speed"] > 2.75:
 
-            reward += 20
+            reward += 10
 
         else:
 
-            reward -= 20
+            reward -= 10
 
     elif params["closest_waypoints"][1] in moderate:
 
