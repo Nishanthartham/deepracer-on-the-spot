@@ -7,11 +7,7 @@ def reward_function(params):
                 reward = 0.001
             else:
                 reward += 20
-        else:
-            if steering < 0:
-                reward = 0.001
-            else:
-                reward += 20
+        # else:
 
         reward = ((params["progress"] / params["steps"]) * 100) + (params["speed"]**2)
     else:
