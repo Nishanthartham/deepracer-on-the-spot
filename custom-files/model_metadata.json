@@ -1,6 +1,6 @@
 {
     "action_space": [
-        { "steering_angle": -20, "speed": 1.50},
+        { "steering_angle": -12, "speed": 1},
         { "steering_angle": -10, "speed": 1.70},
         { "steering_angle": 0,   "speed": 3.30},
         { "steering_angle": 0,   "speed": 3.00},
@@ -8,7 +8,9 @@
         { "steering_angle": 0,   "speed": 2.50},
         { "steering_angle": 0,   "speed": 2.25},
         { "steering_angle": 0,   "speed": 2.00},
-        { "steering_angle": 10,  "speed": 1.20}
+        { "steering_angle": 10,  "speed": 1.20},
+        { "steering_angle": 12, "speed": 1}
+
     ],
     "sensor": ["FRONT_FACING_CAMERA"],
     "neural_network": "DEEP_CONVOLUTIONAL_NETWORK_SHALLOW",
