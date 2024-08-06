@@ -7,11 +7,19 @@ def reward_function(params):
                 reward = 0.001
             else:
                 reward += 20
-        # else:
+        else:
+            if steering < 0:
+                reward = 0.001
+            else:
+                reward += 20
 
-        reward = ((params["progress"] / params["steps"]) * 100) + (params["speed"]**2)
+        reward = ((params["progress"] / params["steps"]) * 100) + (params["speed"])
     else:
         reward = 0.01
         
     return float(reward)
+
+
+# params = {"speed":2.71,"steering_angle":2,"steps":10,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[0,0],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":15}
+# print(reward_function(params))
 
