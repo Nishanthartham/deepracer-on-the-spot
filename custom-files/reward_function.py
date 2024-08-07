@@ -107,11 +107,11 @@ def reward_function(params):
 
     if params["closest_waypoints"][1] in right_turn:
             # Give higher reward if the car is closer to center line and vice versa
-            if distance_from_center <= marker_1:
-                reward += 20
-            else:
-                reward -=10
-        print("in right turn")
+        if distance_from_center <= marker_1:
+            reward += 20
+        else:
+            reward -=10
+            
         if params["steering_angle"] < -5:
             reward -= 10
         # else:
@@ -160,5 +160,5 @@ def reward_function(params):
     return float(reward)
 
 
-# params = {"speed":2.75,"steering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
+# params = {"distance_from_center":10,"speed":2.75,"steering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
 # print(reward_function(params))
