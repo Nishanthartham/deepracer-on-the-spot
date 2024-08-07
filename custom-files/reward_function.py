@@ -33,8 +33,7 @@ def reward_function(params):
 
     else:
 
-        reward = -1
-
+        reward = 1e-4
 
     track_width = params['track_width']
     distance_from_center = params['distance_from_center']
@@ -80,7 +79,6 @@ def reward_function(params):
 
         if params["speed"] > 2.75:
 
-            print("spped")
 
             reward += 5
 
