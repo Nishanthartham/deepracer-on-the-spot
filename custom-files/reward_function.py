@@ -33,7 +33,7 @@ def reward_function(params):
 
     else:
 
-        reward -= 20
+        reward -= 40
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -66,7 +66,7 @@ def reward_function(params):
 
     if params["closest_waypoints"][1] in fast:
 
-        if params["speed"] > 2.75:
+        if params["speed"] > 2.5:#add reward += speed*2
 
             print("spped")
 
@@ -78,14 +78,14 @@ def reward_function(params):
 
     elif params["closest_waypoints"][1] in moderate:
 
-        if params["speed"] > 1.2 and params["speed"] <= 2.5:
+        if params["speed"] > 1.75 and params["speed"] <= 2.5:
             # print("moderate")
             reward += 5
             
-    elif params["closest_waypoints"][1] in slow:
-        if params["speed"] <1.2 and params["speed"] >= 1:
-            # print("slow")
-            reward += 5
+    # elif params["closest_waypoints"][1] in slow:
+    #     if params["speed"] <1.2 and params["speed"] >= 1:
+    #         # print("slow")
+    #         reward += 5
 
         else:
 
