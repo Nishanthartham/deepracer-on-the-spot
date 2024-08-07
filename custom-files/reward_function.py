@@ -78,7 +78,7 @@ def reward_function(params):
 
     elif params["closest_waypoints"][1] in moderate:
 
-        if params["speed"] > 1.75 and params["speed"] <= 2.5:
+        if params["speed"] > 1.75 and params["speed"] <= 2.7:
             # print("moderate")
             reward += 5
             
