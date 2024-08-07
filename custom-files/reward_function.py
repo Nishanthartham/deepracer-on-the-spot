@@ -33,7 +33,19 @@ def reward_function(params):
 
     else:
 
-        reward -= 20
+        reward = -1
+
+
+    track_width = params['track_width']
+    distance_from_center = params['distance_from_center']
+    
+    # Calculate 3 markers that are at varying distances away from the center line
+    marker_1 = 0.1 * track_width
+    marker_2 = 0.25 * track_width
+    marker_3 = 0.5 * track_width
+    
+
+
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -94,18 +106,23 @@ def reward_function(params):
     print(params["closest_waypoints"][1])
 
     if params["closest_waypoints"][1] in right_turn:
+            # Give higher reward if the car is closer to center line and vice versa
+            if distance_from_center <= marker_1:
+                reward += 20
+            else:
+                reward -=10
         print("in right turn")
         if params["steering_angle"] < -5:
             reward -= 10
-        else:
-            reward += 10
+        # else:
+        #     reward += 10
     else:
         print("in left turn")
 
         if params["steering_angle"] > 5:
             reward -= 10
-        else:
-            reward += 10
+        # else:
+        #     reward += 10
 
 
 
