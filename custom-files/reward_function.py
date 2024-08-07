@@ -33,7 +33,7 @@ def reward_function(params):
 
     else:
 
-        reward -= 25
+        reward -= 30
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -41,7 +41,7 @@ def reward_function(params):
 
     elif params["closest_waypoints"][1] in right_lane and not params["is_left_of_center"]:
 
-        reward += 10
+        reward += 20
 
     elif params["closest_waypoints"][1] in center_lane and center_variance < 0.4:
         print("center lane")
@@ -145,6 +145,7 @@ def reward_function(params):
     # print("Next point", params["closest_waypoints"][1])
     # print("Speed", params["speed"])
     # print("Is left", params["is_left_of_center"])
+    reward += params["speed"]**2
 
     return float(reward)
 
