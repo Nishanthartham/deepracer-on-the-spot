@@ -20,8 +20,8 @@ def reward_function(params):
 
     moderate = [11,42,43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 67, 68, 69,70, 71, 72, 73, 74, 75, 76, 77,78,79,99, 100, 101, 102, 103, 104, 105, 106]  # 2
 
-    slow = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 73]  # 1
-    # sharp_turns = [57, 69,80]
+    # slow = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 73]  # 1
+    sharp_turns = [65,66,67]
     # rounded_turns = [19, 32, 107]
 
     reward = 30
@@ -33,7 +33,7 @@ def reward_function(params):
 
     else:
 
-        reward -= 40
+        reward -= 25
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -99,6 +99,12 @@ def reward_function(params):
             reward -= 10
         else:
             reward += 10
+
+        if params["closest_waypoints"][1] in sharp_turns:
+            if params["steering_angle"] >= 12:
+                reward += 10
+            else:
+                reward -= 10
     else:
         print("in left turn")
 
