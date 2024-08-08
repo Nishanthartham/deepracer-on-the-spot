@@ -33,7 +33,7 @@ def reward_function(params):
 
     else:
 
-        reward -= 30
+        reward -= 25
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -41,7 +41,7 @@ def reward_function(params):
 
     elif params["closest_waypoints"][1] in right_lane and not params["is_left_of_center"]:
 
-        reward += 20
+        reward += 10
 
     elif params["closest_waypoints"][1] in center_lane and center_variance < 0.4:
         print("center lane")
@@ -60,7 +60,7 @@ def reward_function(params):
 
     if step > 0:
         reward += ((params["progress"]*150)/step)#######
-        print(f"((params['progress']*150)/step) = {((params['progress']*150)/step)}")
+        # print(f"((params['progress']*150)/step) = {((params['progress']*150)/step)}")
 
 #####SPEED
 
@@ -101,7 +101,7 @@ def reward_function(params):
             reward += 10
 
         if params["closest_waypoints"][1] in sharp_turns:
-            if params["steering_angle"] >= 12:
+            if params["steering_angle"] >= 15:
                 reward += 10
             else:
                 reward -= 10
@@ -116,10 +116,10 @@ def reward_function(params):
 
 
 # Steering penality threshold, change the number based on your action space setting
-    ABS_STEERING_THRESHOLD = 15
-    if steering > ABS_STEERING_THRESHOLD:
-        print("steering more than 15")
-        reward *= 0.8
+    # ABS_STEERING_THRESHOLD = 15
+    # if steering > ABS_STEERING_THRESHOLD:
+    #     print("steering more than 15")
+    #     reward *= 0.8
     # elif params["closest_waypoints"][1] in slow:
 
     #     if params["speed"] <= 1:

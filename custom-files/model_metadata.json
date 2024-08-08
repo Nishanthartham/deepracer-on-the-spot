@@ -32,6 +32,10 @@
         {
             "steering_angle": 15,
             "speed": 1.75
+        },
+        {
+            "steering_angle": 20,
+            "speed": 1.75
         }
     ],
     "sensor": [
