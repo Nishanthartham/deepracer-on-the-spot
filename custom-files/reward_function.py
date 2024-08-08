@@ -160,5 +160,5 @@ def reward_function(params):
     return float(reward)
 
 
-params = {"steering_angle":20,"is_offtrack":True,"speed":2.75,"seering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
-print(reward_function(params))
+# params = {"steering_angle":20,"is_offtrack":True,"speed":2.75,"seering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
+# print(reward_function(params))
