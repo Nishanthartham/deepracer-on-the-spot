@@ -26,14 +26,14 @@ def reward_function(params):
 
     reward = 30
 
-    if params["all_wheels_on_track"]:
+    if params["is_offtrack"]:
         print("on track")
 
         reward += 10
 
     else:
 
-        reward -= 25
+        reward = 1e-3
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -78,7 +78,7 @@ def reward_function(params):
 
     elif params["closest_waypoints"][1] in moderate:
 
-        if params["speed"] > 1.75 and params["speed"] <= 2.7:
+        if params["speed"] > 1.75 and params["speed"] <= 2.5:
             # print("moderate")
             reward += 5
             
