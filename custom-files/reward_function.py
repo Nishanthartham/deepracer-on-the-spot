@@ -22,7 +22,7 @@ def reward_function(params):
 
     # slow = [63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 73]  # 1
     sharp_turns = [65,66,67]
-    # rounded_turns = [19, 32, 107]
+    left_rounded_turns = [11,12,13,48,49,50,51]
 
     reward = 30
 
@@ -110,6 +110,13 @@ def reward_function(params):
 
         if params["steering_angle"] > 5:
             reward -= 10
+        
+        if params["closest_waypoints"][1] in left_rounded_turns:
+            if params["steering_angle"] >= 15:
+                reward += 10
+            else:
+                reward -= 10
+
         else:
             reward += 10
 
@@ -150,5 +157,5 @@ def reward_function(params):
     return float(reward)
 
 
-# params = {"speed":2.75,"steering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
-# print(reward_function(params))
+params = {"speed":2.75,"steering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
+print(reward_function(params))
