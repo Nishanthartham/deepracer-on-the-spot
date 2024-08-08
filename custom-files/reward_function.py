@@ -26,14 +26,7 @@ def reward_function(params):
 
     reward = 30
 
-    if params["is_offtrack"]:
-        print("on track")
 
-        reward += 10
-
-    else:
-
-        reward = 1e-3
 
     if params["closest_waypoints"][1] in left_lane and params["is_left_of_center"]:
         print("left lane")
@@ -155,8 +148,17 @@ def reward_function(params):
     # print("Is left", params["is_left_of_center"])
     reward += params["speed"]**2
 
+    if not params["is_offtrack"]:
+        print("on track")
+
+        reward += 10
+
+    else:
+
+        reward = 1e-3
+
     return float(reward)
 
 
-# params = {"speed":2.75,"seering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
-# print(reward_function(params))t
+params = {"steering_angle":20,"is_offtrack":True,"speed":2.75,"seering_angle":0,"steps":71,"distance_from_center":90,"heading":8,"waypoints":[[1,2],[1,2],[1,2]],"closest_waypoints":[1,11],"track_width":10,"all_wheels_on_track":True,"is_left_of_center":True,"progress":10.61311464}
+print(reward_function(params))
